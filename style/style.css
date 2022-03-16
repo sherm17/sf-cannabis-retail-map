@@ -1,0 +1,1415 @@
+
+/* -------------------- General set up -------------------- */
+
+html, body, #map {
+  font-family: Rubik, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+html, body {
+  position: fixed;
+  min-height: 100%;
+}
+
+body {
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  height: 90%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.font-weight-500 {
+  font-weight: 500;
+}
+
+a, a:hover {
+  color: #4F66EE !important;
+  text-decoration: none;
+}
+
+.custom-checkbox {
+  margin-top: 15px;
+  padding-left: 0px;
+  width: 100%;
+}
+
+/* -------------------- Relative sizing -------------------- */
+
+
+.modal-header {
+  font-size: 1em;
+}
+
+h5{
+  font-size: 1em !important;
+}
+
+.multiple-business-selection {
+  font-size: 1em;
+}
+
+.multiple-business-selection__address {
+  font-size: .7em;
+  margin: 0;
+}
+
+.multiple-business-selection__name {
+  font-size: .8em;
+  font-weight: 500;
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+/* -------------------- Map set up -------------------- */
+
+#map {
+  width: 100% !important;
+}
+
+#BasemapToggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+}
+
+
+.esri-zoom {
+  border: 2px solid #D3D3D3;
+}
+
+.esri-icon-minus, .esri-icon-plus {
+  color: #1C3E57;
+  font-weight: 800;
+}
+
+.esri-ui-top-left {
+  right: 3px !important;
+  top: 10px !important;
+  left: auto;
+}
+
+.esri-basemap-toggle {
+  width: 35px !important;
+  height: 35px !important;
+}
+
+.esri-basemap-thumbnail {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.esri-zoom {
+  border-radius: 8px !important;
+}
+
+.esri-widget--button[title="Zoom In"]  {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.esri-widget--button[title="Zoom Out"]  {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.map-container {
+  width: 100%;
+  position: relative;
+}
+
+.esri-ui-top-right {
+  top: 90px !important;
+  right: 2px;
+}
+
+.esri-basemap-toggle__image--secondary {
+  display: none;
+}
+
+.esri-basemap-thumbnail__image  {
+  width: 34px;
+  height: 34px;
+  border-radius: 4px;
+}
+
+
+/* -------------------- Header --------------------*/
+
+#city-seal {
+  width: 50px;
+  height: auto;
+}
+
+.navbar, .nav{
+  background-color: #1C3E57;
+  color: white;
+  padding: 1rem;
+  height: 10%;
+  min-height: 95px;
+}
+
+.navbar {
+  justify-content: normal;
+}
+
+.header-title {
+  text-emphasis: left;
+  font-size: 25px;
+  margin: auto 0;
+}
+
+.row {
+  width: 100%;
+}
+
+.right-side-nav {
+  margin: auto 0;
+}
+
+.input-group-append button {
+  background: white !important;
+}
+
+.input-group input {
+  border: 1px solid white !important;
+}
+
+.left-side-nav {
+  display: flex;
+}
+
+.input-group {
+  width: 100% !important;
+}
+
+.input-group input:focus {
+  box-shadow: none;
+}
+
+.fa-search {
+  color: #1C3E57
+}
+
+.nav btn {
+  background: white;
+}
+
+.form-control {
+   border-radius: 6px;
+}
+
+.input-group-append button {
+  border-radius: 0 6px 6px 0;
+}
+
+.btn-search .fa-search {
+  vertical-align: middle !important;
+  margin-bottom: 2px;
+}
+
+/* -------------------- Filter section -------------------- */
+#filter-container {
+  display: block;
+  left: 0;
+  min-width: 370px;
+  z-index: 2;
+  height: 100%;
+  background-color: white;
+  box-shadow: black 1px;
+  padding: 0px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+  overflow: scroll;
+}
+
+#submitted, #submittedPin {
+  background-color: #95DFFF;
+  color: #212123;
+  font-weight: 600;
+}
+
+#approved, #approvedPin{
+  background-color: #3B8308;
+  font-weight: 600;
+  color: white;
+}
+
+#onHold, #onHoldPin {
+  background-color: #F4C735;
+  color: #212123;
+  font-weight: 600;
+}
+
+#processing, #processingPin {
+  background-color: #026FD3;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+#underConstruction, #underConstructionPin {
+  background-color: #0A3177;
+  color: #FFFFFF;
+  font-weight: 600;
+
+}
+
+#mcd {
+  background-color:#2E521D;
+  color: white;
+}
+
+#supervisor-list, #supervisor-list__mobile {
+  list-style: none;
+  padding: 0px;
+  line-height: 2;
+  padding-left: 2px;
+  font-size: 1em;
+}
+
+#supervisor-list li, #supervisor-list__mobile li {
+  cursor: pointer;
+  color: #4F66EE;
+  text-decoration: underline;
+}
+
+.custom-control-label {
+  margin-left: 10px;
+}
+
+.neighborhood-label {
+  margin-left: 4px !important;
+}
+
+.custom-checkbox .custom-control-label::before {
+  background: white;
+  border: 2px solid rgba(33, 33, 35, 0.60);
+  top: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.custom-checkbox .custom-control-label::after {
+  top: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.permit-description {
+  padding-left: 65px;
+  padding-top: 5px;
+  /* padding-bottom: 20px; */
+  font-size: 14px;
+  line-height: 1.4;
+  color: #666666;
+  width: 90%;
+  text-align: left;
+  width: 300px;
+}
+
+.pin {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.accordion-toggle {
+  position: absolute;
+  right: 0px;
+  display: inline-block;
+  background-image: url('../images/Chevron.png');
+  background-size: cover;
+  transform: rotate(180deg);
+  width: 20PX;
+  height: 20PX;  
+}
+
+.accordion-toggle.collapsed {
+  position: absolute;
+  right: 0px;
+  display: inline-block;
+  background-image: url('../images/Chevron.png');
+  background-size: cover;
+  transform: rotate(360deg);
+  width: 20PX;
+  height: 20PX;
+}
+
+.filter-category-name {
+  position: relative;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 27px;
+  padding-top: 20px;
+  text-align: left;
+}
+
+a#list-view-link {
+  text-decoration: none;
+  color: #4F66EE !important;
+  font-size: 20px;
+}
+
+
+
+/* #super-dist {
+  margin-right: 16px;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: black;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  font-size: 11px;
+} */
+
+
+/* -------------------- Legend section -------------------- */
+
+.image-container-desktop {
+  position: absolute;
+  bottom: 4%;
+  right: 2%;
+  z-index: 2;
+  background: white;
+  padding: 0 20px 20px 20px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  width: 370px;
+}
+
+/* -------------------- Mobile section -------------------- */
+
+
+.mobile-accordion-toggle {
+  display: inline-block;
+  background-image: url('../images/Chevron.png');
+  background-size: cover;
+  transform: rotate(180deg);
+  width: 20PX;
+  height: 20PX;
+}
+
+.mobile-accordion-toggle.collapsed {
+  display: inline-block;
+  background-image: url('../images/Chevron.png');
+  background-size: cover;
+  transform: rotate(0deg);
+  width: 20PX;
+  height: 20PX;
+}
+
+.disclaimer {
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #F1F1F1;
+}
+
+.each-permission {
+  display: flex;
+  height: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.zoning-description {
+  text-align: left;
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.4;
+  margin-top: -10px;
+  padding: 0 45px;
+}
+
+.zoning-description:not(:last-child) {
+  padding-bottom: 20px;
+}
+
+.each-permission .accordion-toggle {
+  position: absolute;
+  right: 0;
+}
+
+.permission-symbol {
+  width: 24px;
+  height: auto;
+  margin-left: 5px;
+}
+
+.each-permission a {
+  margin: auto 0;
+}
+
+.permission-symbol img {
+  max-width: 100%;
+}
+
+.zoning-permissions {
+  font-size: 14px;
+  position: relative;
+}
+
+#filter-container > img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.filter-header {
+  background-color: #1C3E57;
+  color: white;
+  text-align: center;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 47px;
+  height: 50px;
+  border-radius: 8px 8px 0px 0px;
+
+}
+
+.retail-cannabis-checkbox, .disclaimer {
+  margin: 20px;
+}
+
+.list-view {
+  border-top: 2px solid #d3d3d3;
+  margin-top: 20px;
+  text-align: left;
+  padding: 20px 0px 50px 0px;
+}
+
+.permission-text {
+  margin-left: 15px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.supervisor-icon {
+  font-weight: bold;
+  font-size: 19px;
+  padding-left: 6px;
+}
+
+.zoning-permissions > img {
+  position: absolute;
+  top: 50%;
+}
+
+#legend {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1;
+  background-color: white;
+  box-shadow: black 1px;
+  border: 1px solid navy;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 19px;
+  font-weight: normal;
+  text-align: left;
+  font-style: normal;
+}
+
+
+  
+
+  /* popup styling */
+
+.esri-icon-close {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+}
+
+.esri-widget {
+  font-family: Rubik, sans-serif;
+}
+
+
+.messi-button-container {
+  text-align: center;
+}
+
+.disabledDIV {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.esri-popup__header-buttons {
+  z-index: 5;
+}
+
+#spinnerLargeMap{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 10;
+}
+
+.zoning_image {
+  width: 25px;
+}
+
+.esri-popup__content {
+  margin: 0 !important;
+}
+
+/* checkboxes */
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+  background-color:black;
+}
+
+
+/* multiple selection popup */
+.messi-titlebox {
+  background: #1C3E57 !important;
+}
+
+.messi-content {
+  padding: 0px !important;
+}
+
+.messi-box {
+  padding: 0px !important;
+}
+
+.multiple-business-selection {
+  width: 100%;
+}
+
+#multiple-business-selection__address {
+  font-size: 13px !important;
+}
+
+.btn-sm {
+  background: white !important;
+  padding: 0px !important;
+  border-radius: 0px !important;
+  font-weight: normal;
+  height: 80px;
+}
+
+.messi-button-container:nth-last-of-type(n + 2) .btn-sm{
+  border-bottom: 2px solid rgb(233, 233, 233);
+}
+
+.btn-sm:hover {
+  background-color: #EDF4F7 !important;
+}
+
+.modal-title {
+  /* text-align: center; */
+  width: 100%;
+  /* font-size: 20px; */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%)
+}
+
+.modal-body {
+  padding: 0;
+  text-align: center;
+}
+
+.modal-header {
+  background: #1C3E57;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  opacity: .99 !important;
+  color: white;
+  text-shadow: 0 0px 0 #fff;
+  font-weight: 200;
+  font-size: 40px;
+  padding: 0.5rem 1rem .5rem 1rem !important;
+}
+
+.close:hover {
+  color: white;
+}
+
+
+
+.multiple-location__icon {
+  width: 16px;
+}
+
+button.close:hover {
+  opacity: 0.75;
+}
+
+.modal-content {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+}
+
+.modal-footer {
+  padding: 0.3rem;
+  border-top: 0;
+}
+
+
+/* search popup */
+
+.esri-popup__main-container:first-child {
+  /* border-radius: 8px; */
+  padding: 0 !important;
+}
+
+.esri-popup__footer {
+  padding: 0 !important;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-top: 0 !important;
+}
+
+.esri-popup__button {
+  margin: 10px 5px;
+}
+
+.esri-popup__header-title {
+  display: none;
+  /* color: white; */
+}
+
+.nearby-location-title {
+  color: white;
+  width: 100%;
+  position: absolute !important;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+
+.esri-popup__header-title:hover {
+  background-color: white;
+}
+
+.esri-popup__header {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  color: white;
+}
+
+.esri-popup__content {
+  font-size: 14px !important;
+}
+
+.no-margin-popup {
+  margin: 0 !important;
+}
+
+.esri-popup__button--dock {
+  display: none;
+}
+
+.popup-parcel-information-container {
+  margin: 15px
+}
+
+.esri-popup__button:hover {
+  background: none;
+}
+
+.esri-feature__main-container {
+  /* margin-bottom: 20px; */
+}
+
+.esri-popup__inline-actions-container {
+display: none;
+}
+
+.esri-popup__main-container {
+  /* max-height: fit-content !important; */
+  max-height: none !important;
+}
+
+.esri-popup__pointer-direction {
+  transform: scale(2, 2) rotate(45deg) !important;
+}
+
+.esri-popup__pointer .esri-popup__pointer-direction {
+  border-radius: 0;
+}
+
+.multiple-locations-inside-buffer{
+  width: 100%;
+}
+
+.multiple-locations-inside-buffer tr:not(:last-child) {
+  border-bottom: 3px solid #E9E9E9;;
+}
+
+.multiple-locations-inside-buffer td p{
+  margin: 0;
+  padding-left: 10px;
+}
+
+.multiple-locations-inside-buffer .multiple-location-td{
+  text-align: left;
+}
+
+.multiple-location-td {
+  padding: 10px 0px;
+  cursor: pointer;
+}
+
+.multiple-location-td:hover {
+  background: #EDF4F7;
+}
+
+.multiple-location-td__image {
+  padding: 0 10px;
+  border-right:  3px solid #E9E9E9; 
+}
+
+.multiple-location-td__info a {
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.show-nearby-locations {
+  text-decoration: underline;
+}
+
+.show-nearby-locations:hover {
+  text-decoration: underline;
+}
+
+.multiple-location__address {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.esri-view-width-xsmall .esri-popup--is-docked-bottom-center .esri-popup__main-container.esri-popup--is-collapsible:before {
+  content: none;
+}
+
+.cannabis-permit-container {
+  text-align: left;
+}
+
+.cannabis-permit {
+  font-size: 15px;
+  height: 30px;
+  font-weight: 500;
+  line-height: 30px;
+  padding: 0 10px 0 10px;
+  border-radius: 40px;
+  text-align: center;
+  display: inline-block;
+}
+
+.status-section {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+
+.status-section tr {
+  margin-bottom: 10px;
+}
+
+.align-left {
+  text-align: left;
+  font-size: 14px;
+}
+
+.attribute {
+  background-color: #f1f1f1;
+  padding: 7px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.attribute-detail {
+  text-align: left;
+  padding-left: 15px;
+}
+
+.nearby {
+  background: #F4C435 !important;
+}
+
+.retail-name {
+  font-size: 24px;
+  font-weight: 550;
+  line-height: 34px;
+  margin-top: 10px;
+}
+
+.retail-address {
+  line-height: 24px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  opacity: .75;
+}
+
+.zoning-information {
+  border: 3px solid #4F66EE;
+  box-sizing: border-box;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.cannabis-zoning {
+  display: flex;
+}
+
+.cannabis-zoning__text {
+  margin-left: 10px;
+  color: #212123;
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  line-height: 24px;
+}
+
+
+.cannabis-zoning-image-container{
+  min-width: 25px;
+  width: 25px;
+}
+
+.cannabis-zoning {
+  text-align: left;
+}
+
+.disretionary-message{
+  text-align: left;
+  margin-top: 5px;
+}
+
+.esri-icon-close {
+  font-size: 20px;
+}
+
+/* Mobile Menu*/
+.menu-mobile {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  background: #f8f8f8;
+}
+
+#alert-message-mobile {
+  padding: 0 1rem;
+  text-align: left;
+}
+
+#zoning-permission-title {
+  font-size: 13px ;
+}
+
+#alert {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+}
+
+#nearby-location-disclaimer {
+  padding: 15px 0px 15px 10px;
+  text-align: left;
+  color: #1C3E57;
+}
+
+.menu-mobile-legend-tab {
+  position: absolute;
+  z-index: 2;
+  bottom: 60px;
+  height: 372px;
+  width: 100%;
+  background: white;
+  padding: 1rem;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.mobile-legend-logo img {
+  height: 100%;
+  width: 100%;
+  vertical-align: baseline;
+}
+
+.tab-selected {
+  background: white;
+}
+
+.container-fluid {
+  padding: 0;
+  position: fixed;
+}
+
+.esri-popup__navigation {
+  width: 100%;
+  margin: 0 auto;
+  margin: 0 10px;
+  background-color: #f8f8f8 !important;
+}
+
+.esri-popup__pagination-next {
+  position: absolute !important;
+  right: 0;
+  padding: 0
+}
+
+.esri-popup__pagination-previous{
+  position: absolute !important;
+  left: 0;
+  padding: 0;
+}
+
+.esri-popup__pagination-next-icon:before {
+  content: url(../images/Chevron-Bright-Blue-Small.svg);
+  /* transform: rotate(90deg); */
+}
+
+.esri-popup__pagination-previous-icon:before {
+  content: url(../images/Chevron-Bright-Blue-Small.svg);
+}
+
+
+.esri-popup__pagination-previous-icon, .esri-popup__pagination-next-icon {
+  height: 100%;
+}
+
+.esri-popup__pagination-next-icon {
+  transform: rotate(180deg);
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* IE10+ CSS styles go here */
+  .esri-popup__pagination-previous-icon, .esri-popup__pagination-next-icon.esri-popup__pagination-next-icon {
+    height: auto;
+    transform: rotate(-180deg);
+  }
+
+  .esri-popup__feature-menu-button {
+    /* margin-bottom: 20px; */
+  }
+
+  .esri-popup__navigation {
+    margin-top: 10px;
+  }
+  .esri-popup__pagination-previous-icon:before, .esri-popup__pagination-next-icon.esri-popup__pagination-next-icon:before {
+    transform: none;
+    height: auto;
+  }
+  .esri-popup__pagination-next-icon.esri-popup__pagination-next-icon:before {
+    content: url(../images/Chevron-Bright-Blue-Small.svg);
+    /* transform: rotate(180deg); */
+  }
+
+  .esri-popup__pagination-previous-icon:before {
+    content: url(../images/Chevron-Bright-Blue-Small.svg);
+  }
+  
+  .esri-popup__pagination-next, .esri-popup__pagination-previous{
+    top: 0;
+  }
+
+  .left-side-nav, .right-side-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  #searchbox {
+    width: 100%;
+  }
+}
+
+.esri-popup__feature-menu-button {
+  color: #4F66EE;
+  font-size: 20px!important;
+  font-weight: 400 !important;
+}
+
+.esri-popup--feature-menu-open .esri-popup__feature-menu-button {
+  background: #f9f9f9;
+  color: #4F66EE;
+}
+
+.esri-popup__feature-menu .esri-popup__feature-menu-header {
+  background: #1C3E57;
+}
+
+.esri-popup__feature-menu {
+  box-shadow: none;
+}
+
+h2.esri-popup__feature-menu-header, section.esri-popup__feature-menu{
+  border-top-right-radius: 8px ;
+  border-top-left-radius: 8px; 
+}
+
+.esri-popup--aligned-top-center {
+  border-top-right-radius: 8px;
+}
+
+/* for bottom portion of popup */
+.esri-popup--feature-menu-open .esri-popup__main-container {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+} 
+
+.esri-popup--feature-menu-open {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+/* for top portion of popup */
+.esri-popup--aligned-top-center {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.esri-popup__main-container {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.esri-popup__feature-menu-title  {
+  border-left: solid 3px #E9E9E9;
+}
+
+.esri-popup__feature-menu-item--selected, .esri-popup__feature-menu-item {
+  border-bottom: solid 3px #E9E9E9 !important;
+  color: black;
+  font-size: 14px;
+}
+
+.esri-popup__feature-menu-item {
+  border: none;
+}
+
+.esri-popup {
+  border-radius: 8px;
+}
+
+.esri-icon-check-mark {
+  content: url(../images/Check.svg);
+  width: 30px;
+}
+
+h2.esri-popup__feature-menu-header {
+  color: white;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 992px) {
+  .row {
+    height: 100%;
+  }
+
+  .legend-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4F66EE;
+    font-weight: 500;
+  }
+
+  .selected {
+    background: white;
+    color: #1C3E57;
+  }
+
+  .tab-container {
+    height: 60px;
+  }
+
+  .tab-display-container {
+    background: white;
+    /* min-height: 372px; */
+    height: 300px;
+    overflow: auto;
+  }
+
+  .col {
+    cursor: pointer;
+  }
+
+  .mobile-legend-logo, .mobile-legend-text {
+    display: inline-block;
+  }
+
+  .navbar {
+    height:auto;
+    padding: 0;
+  }
+
+  .row {
+    margin: 0;
+  }
+
+  .right-side-nav {
+    background: white;
+    padding: 1rem;
+  }
+
+  #searchbox {
+    border: 2px solid #D3D3D3;
+    height: 45px;
+    border-radius: 6px;
+  }
+
+  .content-container {
+    height: calc(100% - 120px);
+  }
+
+  #mobile-selected-tab {
+    display: absolute;
+    bottom: 60px;
+    z-index: 2;
+    width: 100%;
+  }
+
+  #mobile-legend {
+    padding: 0 1rem;
+  }
+
+  #filter-container {
+    min-width: 100%;
+    overflow: auto;
+    box-shadow: inset 0px -40px 41px -44px rgba(0,0,0,0.2);
+  }
+
+  #filter-elements {
+    height: 100%;
+    padding: 0 1rem;
+  }
+
+  .mobile-accordion-toggle {
+    position: absolute;
+    right: 12px;
+  }
+
+  .header-title {
+    font-size: 25px;
+  }
+
+  .modal-content {
+    text-align: left;
+    box-sizing: border-box;
+  }
+}
+
+.menu-mobile, .esri-popup__main-container, .tab-display-container, .navbar  {
+  min-width: 200px;
+}
+
+
+@media only screen and (max-width: 320px) {
+  .modal-content{
+    font-size: 16px !important;
+  }
+
+  .zoning-permission-title {
+    line-height: 1.2 !important;
+    max-width: 150px !important;
+  }
+}
+
+
+@media only screen and (max-width: 544px) {
+  .esri-popup__footer {
+    background: #4f66ee !important;
+    color: white;
+  }
+
+  #supervisor-list__mobile {
+    font-size: 13px;
+  }
+
+  .modal-content{
+    font-size: 19px;
+  }
+
+  .permission-text {
+    font-size: 1em;
+  }
+
+  .custom-control-label {
+    font-size: .9em;
+  }
+
+  .permit-description {
+    width: 250px;
+  }
+
+  .header-title {
+    font-size: 16px;
+    line-height: 1.2;
+    max-width: 150px;
+    text-align: left;
+  }
+
+  .esri-popup--is-docked .esri-popup__header {
+    border-bottom: 1px solid #d3d3d3;
+  }
+
+  .esri-popup__navigation {
+    background: #4f66ee !important;
+  }
+
+  .esri-popup__feature-menu-button {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .esri-popup__feature-menu-button:focus {
+    background: #4f66ee;
+    color: white;
+  }
+
+  .esri-popup--feature-menu-open .esri-popup__feature-menu-button {
+    background: #4F66EE;
+    color: white;
+  }
+
+  .esri-popup__feature-menu-title {
+    padding: 1.5rem 1rem;
+  }
+
+  h2.esri-popup__feature-menu-header {
+    border-radius: 0px;
+  }
+
+  .esri-popup__header {
+    border-radius: 0px;
+  }
+
+  section.esri-popup__feature-menu {
+    position: absolute !important;
+    top: -6px !important;
+    border-top-right-radius: 0px !important;
+  }
+
+  #nearby-location-disclaimer {
+    padding: 10px 0px 10px 20px;
+  }
+
+  table.multiple-locations-inside-buffer {
+    min-height: 150px;
+  }
+
+  .esri-popup__feature-menu-header {
+    border-radius: 0px;
+  }
+
+  .esri-popup--feature-menu-open .esri-popup__feature-menu-viewport {
+    max-height: 100%;
+  }
+  
+  .esri-popup__main-container {
+    position: fixed !important;
+    bottom: 60px !important;
+    border-radius: 0 !important;
+  }
+  
+  span.esri-popup__icon{
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+  }
+
+  .tab-display-container {
+    height: 246px;
+  }
+
+  .esri-popup__main-container {
+    height: 200px;
+  }
+
+  .esri-popup__pagination-next-icon {
+    transform: rotate(0deg);
+  }
+
+  .esri-popup__pagination-previous-icon {
+    transform: rotate(180deg);
+
+  }
+
+  .esri-popup__pagination-next-icon:before {
+    content: url(../images/Chevron-Bright-White.svg);
+    transform: rotate(180deg);
+  }
+
+  .esri-popup__pagination-previous-icon:before {
+    content: url(../images/Chevron-Bright-White.svg);
+  }
+}
+
+/* @media screen and (max-width: 400px){
+  #filter-container{
+      width: 60%;
+      top: 85px;
+      left: 10px;
+      margin: 0 auto;
+  }
+  #BasemapToggle {
+      visibility: hidden;
+  }
+  #legend {
+      left: 5px;
+      bottom: 5px;
+  }
+} */
+
+
+
+@media only screen and (max-width: 500px) {
+  .modal-header {
+    background: white;
+  }
+}
+
+
+.not-available {
+  margin: 50px auto 0 auto;
+  width: 40%;
+}

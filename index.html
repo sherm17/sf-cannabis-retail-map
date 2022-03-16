@@ -1,0 +1,557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cannabis Retail</title>
+
+  
+
+    <!-- New Font Awesome -->
+    <script src="https://kit.fontawesome.com/a825b3db4c.js" crossorigin="anonymous"></script>
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="file:///C:/inetpub/wwwroot/CannabisRetail/bootstrap-4.0.0-dist/css/bootstrap.min.css"> -->
+
+    
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+    <!-- ArcGIS API -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.12/esri/css/main.css">
+
+
+    <script src="https://js.arcgis.com/4.12/"></script>
+    
+    <script src="js/app.js?v=148"></script>
+
+    <!-- messiJS -->
+    <link rel="stylesheet" href="vendor/MessiJS-master/dist/messi.min.css" />
+    <script src="vendor/MessiJS-master/dist/messi.js"></script>
+
+    <!-- style sheet -->
+    <link rel="stylesheet" href="style/style.css?v=111">
+
+
+
+</head>
+
+
+
+<body>
+    <nav class="navbar" stlye="display:flex">
+        <div class="row">
+            <div class="left-side-nav col-lg-6">
+                <div class="seal-image">
+                    <a class="navbar-brand" href="https://sf.gov/" target="_blank">
+                        <img id="city-seal" src="images/city-seal@2x.png" alt="">
+                    </a>
+                </div>
+                <div class="header-title">
+                    Cannabis Storefront Retail Map
+                </div>
+            </div>
+
+            <div class="right-side-nav col-lg-6">
+                <form id='searchbox' class="form-inline" autocomplete="off">
+                    <div class="input-group">
+                        <input alt="Search for an address or parcel. E.g. 400 Van Ness Ave or 0787/001"
+                            title="Search for an address or parcel. E.g. 400 Van Ness Ave or 0787/001" type="text"
+                            id="addressInput" name="address" value="" class="form-control" />
+                        <div class="input-group-append">
+                            <button class="btn btn-search" type="button">
+                                <i class="fas fa-search" style="font-size:20px; vertical-align: bottom;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- <div class="not-available" style="display: none;">
+        The cannabis retail map has been taken down, temporarily.  If you have additional questions about the viability of a cannabis business location, please contact the Office of Cannabis.
+    </div> -->
+    <div class="content-container">
+
+        <!-- MENU FOR MOBILE -->
+        <div class="container-fluid menu-mobile d-lg-none">
+            <div class="row tab-display-container">
+                <div id="mobile-selected-tab">
+                    <div id="mobile-legend">
+                        <div class="filter-category-name" style="display:flex">
+                            <p id="zoning-permission-title">
+                                Storefront retail zoning permissions
+                            </p>
+                            <div id='alert'>
+                                <img src="images/Alert.svg" style="width: 100%; height: 100%;" alt="">
+                            </div>
+
+                        </div>
+
+                        <div class="zoning-permissions">
+                            <div class="each-permission">
+
+                                <div class="permission-symbol">
+                                    <img src="images/legend-allow.svg" alt="">
+                                </div>
+                                <div class="permission-text">Allowed</div>
+                                <a class="mobile-accordion-toggle collapsed" data-toggle="collapse"
+                                    href="#allowed-description" aria-expanded="false"
+                                    aria-controls="allowed-description">
+                                </a>
+                            </div>
+                            <div class="collapse zoning-description" id="allowed-description">
+                                <br> Zone is principally permitted. Planning Commission hearing not mandatory
+                                <br>
+                                <br>
+                            </div>
+                            <div class="each-permission">
+
+                                <div class="permission-symbol">
+                                    <img src="images/legend-conditional-use.svg" alt="">
+                                </div>
+                                <div class="permission-text">Allowed with Conditional Use
+                                    <br>Authorization from SF Planning
+                                </div>
+                                <a class="mobile-accordion-toggle collapsed" data-toggle="collapse"
+                                    href="#conditional-use-description" aria-expanded="false"
+                                    aria-controls="conditional-use-description">
+                                </a>
+                            </div>
+                            <div class="collapse zoning-description" id="conditional-use-description">
+                                <br> Needs hearing in front of Planning Commission.
+                                <br>
+                                <br>
+                            </div>
+                            <div class="each-permission">
+
+                                <div class="permission-symbol">
+                                    <img src="images/legend-microbusiness.svg" alt="">
+                                </div>
+                                <div class="permission-text">Microbusiness permit allowed</div>
+                                <a class="mobile-accordion-toggle collapsed" data-toggle="collapse"
+                                    href="#microbusi-permitted-description" aria-expanded="false"
+                                    aria-controls="microbusi-permitted-description">
+                                </a>
+                            </div>
+                            <div class="collapse zoning-description" id="microbusi-permitted-description">
+                                <br> Business location can do at least 3 activities under 1 permit (storefront retail,
+                                delivery,
+                                cultivation, manufacturing, distribution)
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="filter-container" style="display: none">
+                    <div id="filter-elements">
+                        <div class="filter-category-name">Retail Cannabis Permits</div>
+                        <div class="custom-control custom-checkbox">
+                            &nbsp;
+                            <div class="pin" id="submittedPin">
+
+                            </div>
+                            <input type="checkbox" class="submitted list_item custom-control-input"
+                                id="submitted-desktop" value="5" checked> 
+                            <label class="custom-control-label" for="submitted-desktop">Application submitted</label>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse"
+                                href="#submitted-description-mobile" aria-expanded="false"
+                                aria-controls="submitted-description-mobile">
+                            </a>
+                            <div class="collapse permit-description" id="submitted-description-mobile">
+                                Part 1 application at Office of Cannabis
+                            </div>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+
+
+                            &nbsp;
+
+                            <div class="pin" id="processingPin"></div>
+                            <input type="checkbox" class="processing ist_item custom-control-input "
+                                id="processing-desktop" value="4" checked>
+                            <label class="custom-control-label" for="processing-desktop">Application processing</label>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse"
+                                href="#processing-description-mobile" aria-expanded="false"
+                                aria-controls="processing-description-mobile">
+                            </a>
+                            <div class="collapse permit-description" id="processing-description-mobile">
+                                City is reviewing application
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+
+                            &nbsp;
+
+                            <div class="pin" id="underConstructionPin"></div>
+                            <input type="checkbox" class="under-construction list_item custom-control-input "
+                                id="underConstruction-desktop" value="7" checked>
+                            <label class="custom-control-label" for="underConstruction-desktop">Location under
+                                construction</label>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse"
+                                href="#under-construction-description-mobile" aria-expanded="false"
+                                aria-controls="under-construction-description-mobile">
+                            </a>
+                            <div class="collapse permit-description" id="under-construction-description-mobile">
+
+                                SF Planning has approved land use, business is being built out
+
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            &nbsp;
+
+                            <div class="pin" id="approvedPin"></div>
+                            <input type="checkbox" class="approved list_item custom-control-input "
+                                id="approved-desktop" value="6" checked>
+                            <label class="custom-control-label" for="approved-desktop">Permit approved</label>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse"
+                                href="#approved-description-mobile" aria-expanded="false"
+                                aria-controls="approved-description-mobile">
+                            </a>
+                            <div class="collapse permit-description" id="approved-description-mobile">
+                                Business is allowed to operate
+                            </div>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            &nbsp;
+                            <div class="pin" id="onHoldPin"></div>
+                            <input type="checkbox" class="on-hold list_item custom-control-input " id="onHold-desktop"
+                                value="3" checked>
+                            <label class="custom-control-label" for="onHold-desktop">Application on hold</label>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse"
+                                href="#on-hold-description-mobile" aria-expanded="false"
+                                aria-controls="on-hold-description-mobile">
+                            </a>
+                            <div class="collapse permit-description" id="on-hold-description-mobile">
+                                Currently not progressing with permit
+                            </div>
+                        </div>
+
+                        <div class="filter-category-name">Other boundaries</div>
+
+                        <div class="custom-control custom-checkbox" style="display:flex">
+                            <div class="" style="margin-left: 35px">
+                                <img src="images/MCDs.svg" width="18" height="18">
+                            </div>
+                            <input type="checkbox" class="mcds list_item custom-control-input" id="mcd-desktop"
+                                value="13" checked>
+                            <label class="custom-control-label" for="mcd-desktop" style="margin-left: 14px">Existing
+                                medical cannabis
+                                <br> dispensaries
+                            </label>
+                        </div>
+                        <div class="custom-control custom-checkbox" style="display:flex">
+                            <div class="" style="margin-left: 33px">
+                                <img src="images/school.svg" width="22" height="14">
+                            </div>
+                            <input type="checkbox" class="schools list_item custom-control-input" id="schools-desktop"
+                                value="15" checked>
+                            <label class="custom-control-label" for="schools-desktop" style="margin-left: 11px">Schools
+                                K-12</label>
+                        </div>
+                        <div class="custom-control custom-checkbox" style="display:flex">
+                            <div class="" style="margin-left: 33px">
+                                <span class="supervisor-icon">1</span>
+                            </div>
+                            <input type="checkbox" class="supervisor list_item custom-control-input"
+                                id="supervisor-checkbox__mobile" value="2">
+                            <label class="custom-control-label" for="supervisor-checkbox__mobile"
+                                style="margin-left: 19px">Supervisor Districts</label>
+                            <a class="accordion-toggle collapsed" data-toggle="collapse" href="#supervisor-mobile"
+                                aria-expanded="false" aria-controls="supervisor-mobile">
+                            </a>
+                        </div>
+                        <div class="collapse permit-description" id="supervisor-mobile">
+                            <ul id="supervisor-list__mobile">
+                            </ul>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <div class="" style="margin-left: 33px">
+                                <img src="images/neighborhood.svg" width="26" height="22">
+                                <input type="checkbox" class="neighborhood list_item custom-control-input "
+                                    id="neighborhood-checkbox__mobile" value="21">
+                                <label class="custom-control-label neighborhood-label"
+                                    for="neighborhood-checkbox__mobile">
+                                    <Neighborhood></Neighborhood>Neighborhoods
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <div class="list-view">
+                            <a id="list-view-link" href="https://officeofcannabis.sfgov.org/retail/proposed-locations"
+                                target="_blank">See list view</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row tab-container">
+                <div class="col legend-element selected" id="legend-tab" value="#mobile-legend"
+                    onclick="showLegendOnMobileTab();highLightTabClicked(this); ">
+                    <div class="tab-selection-container">
+                        <div class="mobile-legend-text">
+                            <img id="legend-logo" src="images/legend-active.svg" alt=""
+                                style="width: 16px; height: 16px; margin-right: 15px; margin-bottom: 5px">Legend</div>
+                    </div>
+                </div>
+                <div class="col legend-element" id="location-tab" value="#filter-container"
+                    onclick="showFilterOnMobileTab();highLightTabClicked(this); ">
+                    <div class="tab-selection-container">
+                        <div class="mobile-legend-text">
+                            <img id="locations-logo" src="images/Location.svg" alt=""
+                                style="width: 20px; height: 20px; margin-right: 15px; padding-bottom: 3px;">Locations
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div id="filter-desktop" class="d-none d-lg-block">
+            <div id="filter-container" class="desktop-view">
+                <div class="retail-cannabis-checkbox">
+                    <div class="filter-category-name">Retail Cannabis Permits</div>
+                    <div class="custom-control custom-checkbox">
+                        &nbsp;
+                        <div class="pin" id="submittedPin">
+
+                        </div>
+                        <input type="checkbox" class="list_item custom-control-input" id="submitted" value="5" checked>
+                        <label class="submitted custom-control-label" for="submitted">Application submitted</label>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" href="#submitted-description"
+                            aria-expanded="false" aria-controls="submitted-description">
+                        </a>
+                        <div class="collapse permit-description mobile" id="submitted-description">
+                            Part 1 application at Office of Cannabis
+                        </div>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        &nbsp;
+
+                        <div class="pin" id="processingPin"></div>
+                        <input type="checkbox" class="processing list_item custom-control-input " id="processing"
+                            value="4" checked>
+                        <label class="custom-control-label" for="processing">Application processing</label>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" href="#processing-description"
+                            aria-expanded="false" aria-controls="processing-description">
+                        </a>
+                        <div class="collapse permit-description" id="processing-description">
+
+                            City is reviewing application
+                        </div>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        &nbsp;
+                        <div class="pin" id="underConstructionPin"></div>
+                        <input type="checkbox" class="under-construction list_item custom-control-input "
+                            id="underConstruction" value="7" checked>
+                        <label class="custom-control-label" for="underConstruction">Location under construction</label>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse"
+                            href="#under-construction-description" aria-expanded="false"
+                            aria-controls="under-construction-description">
+                        </a>
+                        <div class="collapse permit-description" id="under-construction-description">
+                            SF Planning has approved land use, business is being built out
+                        </div>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        &nbsp;
+
+                        <div class="pin" id="approvedPin"></div>
+                        <input type="checkbox" class="approved list_item custom-control-input " id="approved" value="6" checked>
+                        <label class="custom-control-label" for="approved">Permit approved</label>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" href="#approved-description"
+                            aria-expanded="false" aria-controls="approved-description">
+                        </a>
+                        <div class="collapse permit-description" id="approved-description">
+                            Business is allowed to operate
+                        </div>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        &nbsp;
+                        <div class="pin" id="onHoldPin"></div>
+                        <input type="checkbox" class="on-hold list_item custom-control-input " id="onHold" value="3" checked>
+                        <label class="custom-control-label" for="onHold">Application on hold</label>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" href="#on-hold-description"
+                            aria-expanded="false" aria-controls="on-hold-description">
+                        </a>
+                        <div class="collapse permit-description" id="on-hold-description">Currently not progressing with
+                            permit
+                        </div>
+                    </div>
+
+                    <div class="filter-category-name">Other boundaries</div>
+                    <div class="custom-control custom-checkbox" style="display:flex">
+                        <div class="" style="margin-left: 35px">
+                            <img src="images/MCDs.svg" width="18" height="18">
+                        </div>
+                        <input type="checkbox" class="mcds list_item custom-control-input" id="mcd" value="13">
+                        <label class="custom-control-label" for="mcd" style="margin-left: 14px">Existing medical
+                            cannabis
+                            <br> dispensaries
+                        </label>
+                    </div>
+                    <div class="custom-control custom-checkbox" style="display:flex">
+                        <div class="" style="margin-left: 33px">
+                            <img src="images/school.svg" width="22" height="14">
+                        </div>
+                        <input type="checkbox" class="schools list_item custom-control-input" id="schools" value="15">
+                        <label class="custom-control-label" for="schools" style="margin-left: 11px">Schools K-12</label>
+                    </div>
+                    <div class="custom-control custom-checkbox" style="display:flex">
+                        <div class="" style="margin-left: 33px">
+                            <span class="supervisor-icon">1</span>
+                        </div>
+                        <input type="checkbox" class="supervisor list_item custom-control-input"
+                            id="supervisor-checkbox" value="2">
+                        <label class="custom-control-label" for="supervisor-checkbox"
+                            style="margin-left: 19px">Supervisor Districts</label>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" href="#supervisor"
+                            aria-expanded="false" aria-controls="supervisor">
+                        </a>
+                    </div>
+                    <div class="collapse permit-description" id="supervisor">
+                        <ul id="supervisor-list">
+                        </ul>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <div class="" style="margin-left: 33px">
+                            <img src="images/neighborhood.svg" width="26" height="22">
+                            <input type="checkbox" class="neighborhood list_item custom-control-input "
+                                id="neighborhood-checkbox" value="21">
+                            <label class="custom-control-label neighborhood-label"
+                                for="neighborhood-checkbox">Neighborhoods</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="disclaimer">Map layers include 600ft buffers
+                    <br> around the property. Use this map only
+                    <br> as an estimate.
+                    <a href="https://sfplanning.org/location-and-hours" target="_blank">Contact SF Planning
+                    </a> to confirm eligibility of location
+                </div>
+                <div class="list-view" style="margin: 0px 20px">
+                    <a id="list-view-link" href="https://officeofcannabis.sfgov.org/retail/proposed-locations"
+                        target="_blank">See list view</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="map-container">
+            <div id="map">
+                <div id="BasemapToggle"></div>
+                <div id="spinnerLargeMap" style="display:none">
+                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                </div>
+            </div>
+            <div class="image-container-desktop d-none d-lg-block">
+                <div class="filter-category-name">Storefront retail zoning permissions</div>
+                <div class="zoning-permissions">
+                    <div class="each-permission">
+
+                        <div class="permission-symbol">
+                            <img src="images/legend-allow.svg" alt="">
+                        </div>
+                        <div class="permission-text">Allowed</div>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse" href="#allowed-description-desktop"
+                            aria-expanded="false" aria-controls="allowed-description-desktop">
+                        </a>
+
+                    </div>
+                    <div class="collapse zoning-description" id="allowed-description-desktop">
+                        <br> Zone is principally permitted.
+                        <br>Planning Commission hearing not mandatory
+                    </div>
+                    <div class="each-permission">
+
+                        <div class="permission-symbol">
+                            <img src="images/legend-conditional-use.svg" alt="">
+                        </div>
+                        <div class="permission-text">Allowed with Conditional Use
+                            <br>Authorization from SF Planning
+                        </div>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse"
+                            href="#conditional-use-description-desktop" aria-expanded="false"
+                            aria-controls="conditional-use-description-desktop">
+                        </a>
+                    </div>
+                    <div class="collapse zoning-description" id="conditional-use-description-desktop">
+                        <br> Needs hearing in front of Planning Commission
+                    </div>
+                    <div class="each-permission">
+
+                        <div class="permission-symbol">
+                            <img src="images/legend-microbusiness.svg" alt="">
+                        </div>
+                        <div class="permission-text">Microbusiness permit allowed</div>
+                        <a class="accordion-toggle collapsed" data-toggle="collapse"
+                            href="#microbusi-permitted-description-desktop" aria-expanded="false"
+                            aria-controls="microbusi-permitted-description-desktop">
+                        </a>
+                    </div>
+                    <div class="collapse zoning-description" id="microbusi-permitted-description-desktop">
+                        <br> Business location can do at least 3
+                        <br> activities under 1 permit (storefront retail, delivery, cultivation,
+                        <br> manufacturing, distribution)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalDisplay" tabindex="-1" role="dialog" aria-labelledby="multipleResultModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="multipleResultModalTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+</html>
